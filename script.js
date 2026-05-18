@@ -53,7 +53,7 @@ function displayTasks() {
             <input type="checkbox" class="todo-checkbox" id="input-${index}" ${item.disabled ? "checked" : ""}>
 
             <p id="todo-${index}" class="${item.disabled ? "disabled" : ""}" onclick="editTask(${index})" >${item.text}</p>
-            
+
         </div>
         `;
         p.querySelector(".todo-checkbox").addEventListener("change", () => {
@@ -99,3 +99,5 @@ function toggleTask(index) {
 function saveToLocalStorage() {
     localStorage.setItem("todo", JSON.stringify(todo));
 }
+
+//test
