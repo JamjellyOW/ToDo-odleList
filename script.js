@@ -49,11 +49,13 @@ function displayTasks() {
     todo.forEach((item, index) => {
         const p = document.createElement("p");
         p.innerHTML = `
-        <div class="todo-container">
-            <input type="checkbox" class="todo-checkbox" id="input-${index}" ${item.disabled ? "checked" : ""}>
+        <div class="todo-item-wrapper"> <!-- New wrapper -->    
+            <div class="todo-container">
+                <input type="checkbox" class="todo-checkbox" id="input-${index}" ${item.disabled ? "checked" : ""}>
 
-            <p id="todo-${index}" class="${item.disabled ? "disabled" : ""}" onclick="editTask(${index})" >${item.text}</p>
-
+                <p id="todo-${index}" class="${item.disabled ? "disabled" : ""}" onclick="editTask(${index})" >${item.text}</p>
+            </div>
+            <span class= "delete-btn" onclick="deleteTask(${index})">×</span>
         </div>
         `;
         p.querySelector(".todo-checkbox").addEventListener("change", () => {
@@ -100,3 +102,9 @@ function saveToLocalStorage() {
     localStorage.setItem("todo", JSON.stringify(todo));
 }
 
+
+function deleteTask(index) {
+    todo.splice(index, 1);
+    saveToLocalStorage();
+    displayTasks();
+}

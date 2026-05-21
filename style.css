@@ -93,6 +93,7 @@ input[type="text"]::placeholder {
 .todo-container {
     display: flex;
     gap: 1rem;
+    position: relative;
 }
 
 ul {
@@ -218,3 +219,58 @@ input[type="checkbox"]:checked::before {
     /*display: none;*/
     background-color: transparent;
 }
+
+
+/* .todo-item-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.delete-btn {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color:var(--grey);
+    margin-left: auto;
+    transition: opacity 0.2s;
+}
+
+.todo-item-wrapper:hover .delete-btn {
+    opacity: 1;
+}
+
+.todo-container p {
+    display: flex;
+    gap: 1rem;
+    flex: 1;
+} */
+
+
+.todo-item-wrapper {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.delete-btn {
+    opacity: 0;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--grey);
+    transition: opacity 0.2s;
+    justify-self: end;
+}
+
+.todo-item-wrapper:hover .delete-btn {
+    opacity: 1;
+}
+
+
